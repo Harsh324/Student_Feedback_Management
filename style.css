@@ -1,0 +1,31 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    min-height: 100vh;
+    background-color: #FFCC00
+}
+
+#Up_div
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 50%;
+    top: 0;
+    background-color: orange;
+}
+
+#Down_div
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 50%;
+    bottom: 0;
+    background-color: green;
+}
