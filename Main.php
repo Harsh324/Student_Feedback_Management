@@ -21,7 +21,7 @@ function Call2()
    <link rel="stylesheet" href="{% static 'Styles/homeStyle.css' %}">
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>IIITN Placement Cell</title>
+   <title>Student Feedback System</title>
    <style>
         *{
         padding: 0;
