@@ -21,7 +21,7 @@
                    <ul class="sub-menu">
                         
                        <li class="menu-item"><a href="faculty_register.php">Add New</a></li>
-                       <li class="menu-item"><a href="#">All Faculty</a></li>
+                       <li class="menu-item"><a href="list_fac.php">All Faculty</a></li>
                        <!-- <li class="menu-item"><a href="#">Home 3</a></li>
                        <li class="menu-item"><a href="#">Home 4</a></li> -->
                    </ul>
@@ -31,7 +31,7 @@
                    <a href="#" data-toggle="sub-menu">Student <i class="plus"></i></a>
                    <ul class="sub-menu">
                        <li class="menu-item"><a href="student_register.php">Add New</a></li>
-                       <li class="menu-item"><a href="#">All Students</a></li>
+                       <li class="menu-item"><a href="list_stu.php">All Students</a></li>
                        <!-- <li class="menu-item"><a href="#">Home 3</a></li>
                        <li class="menu-item"><a href="#">Home 4</a></li> -->
                    </ul>
@@ -41,7 +41,7 @@
                    <a href="#" data-toggle="sub-menu">Subject <i class="plus"></i></a>
                    <ul class="sub-menu">
                        <li class="menu-item"><a href="subject_register.php">Add New</a></li>
-                       <li class="menu-item"><a href="#">All Subjects</a></li>
+                       <li class="menu-item"><a href="list_sub.php">All Subjects</a></li>
                        <!-- <li class="menu-item"><a href="#">Home 3</a></li>
                        <li class="menu-item"><a href="#">Home 4</a></li> -->
                    </ul>
@@ -76,10 +76,4 @@
      </div>
   </header>
   <!-- header end -->
-
- <!-- home section start -->
- <section class="home-section">
- </section>
- <!-- home section end -->
  
-<script src="js/scriptnav.js"></script>
