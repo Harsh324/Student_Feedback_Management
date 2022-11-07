@@ -51,7 +51,7 @@
     <body>  
     <form action="subregisterdb.php", method="post">  
             <div class="container">  
-                <center>  <h1> Faculty Registration Form</h1> </center>  
+                <center>  <h1> Subject Registration Form</h1> </center>  
                 <hr>  
                 <?php if(isset($_GET['error'])){ ?>
                     <p class = "error"> <?php echo $_GET['error']; ?> </p>
