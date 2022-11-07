@@ -30,17 +30,17 @@ else if(empty($pass))
 }
 
 
-$sql = "SELECT * FROM faculty WHERE user_name = '$uname' AND password = '$pass'";
+$sql = "SELECT * FROM faculty WHERE email = '$uname' AND password = '$pass'";
 
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) === 1)
 {
     $row = mysqli_fetch_assoc($result);
-    if($row['registration_no'] === $regno && $row['password'] == $pass)
+    if($row['email'] === $uname && $row['password'] == $pass)
     {
         echo "Logged in";
-        $_SESSION['user_name'] = $row['user_name'];
+        $_SESSION['user_name'] = $row['email'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['id'] = $row['id'];
         header("Location: home.php");

@@ -20,11 +20,11 @@
 
                 <label>
                     <span>Username</span>
-                    <input type="text", name="uname">
+                    <input type="text", name="uname", required>
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="password", name="password">
+                    <input type="password", name="password", required>
                 </label>
                 <button class="submit" type="submit">Sign In</button>
                 <p class="forgot-pass">Forgot Password ?</p>
@@ -33,7 +33,7 @@
 
         <div class="sub-cont">
             <div class="img">
-                <div class="img-text m-up">
+                <!-- <div class="img-text m-up">
                     <h2>New here?</h2>
                     <p>Sign up and discover great amount of new opportunities!</p>
                 </div>
@@ -44,16 +44,12 @@
                 <div class="img-btn">
                     <span class="m-up">Sign Up</span>
                     <span class="m-in">Sign In</span>
-                </div>
+                </div> -->
             </div>
 
-            <form action="register.php" method = "post">
+            <!-- <form action="register.php" method = "post">
                 <div class="form sign-up">
                     <h2>Faculty Sign Up</h2>
-
-                    <?php if(isset($_GET['error'])){ ?>
-                        <p class = "error"> <?php echo $_GET['error']; ?> </p>
-                    <?php } ?>
 
                     <label>
                         <span>Name</span>
@@ -72,7 +68,7 @@
 
                     <button type="submit" class="submit">Sign Up Now</button>
                 </div>
-            </form>
+            </form> -->
         </div>
     </div>
 

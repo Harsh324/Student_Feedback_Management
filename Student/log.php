@@ -2,7 +2,7 @@
 session_start();
 include "db_student.php";
 
-if(isset($_POST['regno']) && isset($_POST['password']))
+if(isset($_POST['rollno']) && isset($_POST['password']))
 {
     function validate($data)
     {
@@ -13,12 +13,12 @@ if(isset($_POST['regno']) && isset($_POST['password']))
     }
 }
 
-$regno = validate($_POST['regno']);
+$rollno = validate($_POST['rollno']);
 $pass = validate($_POST['password']);
 
 
 
-if(empty($regno))
+if(empty($rollno))
 {
     header ("Location: login.php?error = User Name is required");
     exit();
@@ -30,17 +30,17 @@ else if(empty($pass))
 }
 
 
-$sql = "SELECT * FROM users WHERE registration_no = '$regno' AND password = '$pass'";
+$sql = "SELECT * FROM student WHERE rollno = '$rollno' AND password = '$pass'";
 
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) === 1)
 {
     $row = mysqli_fetch_assoc($result);
-    if($row['registration_no'] === $regno && $row['password'] == $pass)
+    if($row['rollno'] === $rollno && $row['password'] == $pass)
     {
         echo "Logged in";
-        $_SESSION['registration_no'] = $row['registration_no'];
+        $_SESSION['rollno'] = $row['rollno'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['id'] = $row['id'];
         header("Location: home.php");
