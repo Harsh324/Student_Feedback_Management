@@ -1,3 +1,41 @@
+<?php
+
+include "db_admin.php";
+if($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+    if(!isset($_GET["id"]))
+    {
+        header("Location : list_fac.php?error = Unable to fetch id");
+        exit();
+    }
+    
+    $id = $_GET["id"];
+
+    $sql = "SELECT * FROM faculty WHERE id = '$id'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    if(!$row)
+    {
+        header("Location : list_fac.php?error = Unable to fetch data");
+        exit();
+    }
+
+    $name	        = $row['name'];
+    $gender         = $row['gender'];
+    $phone          = $row['phone'];
+    $email          = $row['email'];
+    $section        = $row['section'];
+    $sname          = $row['subname'];
+    $branch         = $row['branch'];
+    $scode          = $row['subcode'];
+    $sem            = $row['sem']; 
+}
+
+
+?>
+
+
 <!DOCTYPE html>  
 <html>  
     <head>  
@@ -49,46 +87,39 @@
     
     
     <body>  
-    <form action="subregisterdb.php", method="post">  
+        <form action="updatefacdb.php", method="post">  
             <div class="container">  
-                <center>  <h1> Subject Registration Form</h1> </center>  
+                <center>  <h1> Faculty Registration Form</h1> </center>  
                 <hr>  
                 <?php if(isset($_GET['error'])){ ?>
                     <p class = "error"> <?php echo $_GET['error']; ?> </p>
                 <?php } ?>
 
-
-                <!-- <label><b> <span>Name</span> <b>
-                    <input type="text", name="name", placeholder= "Name", required >   
-                </label>   -->
-
-                <label><b> <span> Subject name </span> <b>  
-                    <input type="text", name="subname", placeholder= "Subject Name", required>
-                </label> 
+                <input type="hidden" name="id", value="<?php echo $id ?>">
 
 
-                <label><b> <span> Subject code <span> <b> 
-                    <input type="text", name="subcode", placeholder= "Subject Code",  required>
-                </label> 
+                <label><b> <span>Name</span> <b>
+                    <input type="text", name="name", placeholder= "Name",, value="<?php echo $name ?>" required >   
+                </label>  
                 
                 
                 <div>
                     <label > <b><span> Branch </span> <b>
-                        <!--input type="text", name="branch", placeholder= "Branch Name", required -->  
-                        <select name="branch">
+                        <input type="text", name="branch", placeholder= "Branch Name",, value="<?php echo $branch ?>" required >  
+                        <!-- <select name="branch">
                             <option value="Branch">Branch</option>
                             <option value="CSE">CSE</option>
                             <option value="ECE">ECE</option>
-                        </select>
+                        </select> -->
                     </label>
                 </div>
 
-                <!-- <div>  
+                <div>  
                     <label><b> <span> Gender : </span> <b><br>  
                         <input type="radio", value="Male", name="gender", checked > Male   
                         <input type="radio", value="Female", name="gender"> Female   
                         <input type="radio", value="Other", name="gender"> Other  
-                        <input type="text", name="gender", placeholder= "Gender", required >
+                        <!-- <input type="text", name="gender", placeholder= "Gender", required >   -->
                     </label>
                 </div> 
                 
@@ -97,19 +128,28 @@
                     <input type="text", name="code", placeholder="Country Code",  value="+91", size="2"> 
                 </label> 
                 <label> <b> <span> Phone : </span> <b>  
-                    <input type="text", name="phone", placeholder="phone no.", required> 
+                    <input type="text", name="phone", placeholder="phone no.",, value="<?php echo $phone ?>" required> 
                 </label> 
 
                 <label ><b><span> Email </span> </b>
-                    <input type="text", placeholder="Enter Email", name="email", required>  
-                </label>   -->
+                    <input type="text", placeholder="Enter Email", name="email",, value="<?php echo $email ?>" required>  
+                </label>  
                 <!-- <label> <b> Roll No <b></label>
                     <input type="text" placeholder="Enter Roll No" name="rollno" id="roll"> -->
-  
+
+                <label><b> <span> Subject name </span> <b>  
+                    <input type="text", name="subname", placeholder= "Subject Name",, value="<?php echo $sname ?>" required>
+                </label> 
 
 
-                <!-- <div>
+                <label><b> <span> Subject code <span> <b> 
+                    <input type="text", name="subcode", placeholder= "Subject Code",, value="<?php echo $scode ?>"  required>
+                </label>   
+
+
+                <div>
                     <label > <b> <span> Section </span> <b>
+                    <!-- <input type="text", name="sec", placeholder= "Section", required >   -->
                         <select name="sec">
                             <option value="Section">Section</option>
                             <option value="A">A</option>
@@ -118,17 +158,18 @@
                         </select>
                     </label>
 
-                </div> -->
+                </div>
 
                 <div>
                     <label>Semester
-                        <input type="number", name="sem", min="1", max="8">
+                        <input type="number", name="sem",, value="<?php echo $sem ?>" min="1", max="8">
                     </label>
                 </div>
 
                 <input type="submit", name="submit" class="registerbtn", value="Register">  
 
             </div>
-        </form>    
+        </form>  
+
     </body>  
 </html>  

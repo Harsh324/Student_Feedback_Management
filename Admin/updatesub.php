@@ -1,3 +1,35 @@
+<?php
+
+include "db_admin.php";
+if($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+    if(!isset($_GET["id"]))
+    {
+        header("Location : list_sub.php?error = Unable to fetch id");
+        exit();
+    }
+    
+    $id = $_GET["id"];
+
+    $sql = "SELECT * FROM subject WHERE id = '$id'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    if(!$row)
+    {
+        header("Location : list_sub.php?error = Unable to fetch data");
+        exit();
+    }
+
+    $sname         = $row['subname'];
+    $branch        = $row['branch'];
+    $scode         = $row['subcode'];
+    $sem           = $row['sem']; 
+}
+
+
+?>
+
 <!DOCTYPE html>  
 <html>  
     <head>  
@@ -25,8 +57,8 @@
                 outline: none;  
             }  
             div {  
-                        padding: 10px 0;  
-                    }  
+                padding: 10px 0;  
+            }  
             hr {  
                 border: 1px solid #f1f1f1;  
                 margin-bottom: 25px;  
@@ -49,7 +81,7 @@
     
     
     <body>  
-    <form action="subregisterdb.php", method="post">  
+    <form action="updatesubdb.php", method="post">  
             <div class="container">  
                 <center>  <h1> Subject Registration Form</h1> </center>  
                 <hr>  
@@ -61,14 +93,15 @@
                 <!-- <label><b> <span>Name</span> <b>
                     <input type="text", name="name", placeholder= "Name", required >   
                 </label>   -->
+                <input type="hidden" name="id" value="<?php echo $id ?>">
 
                 <label><b> <span> Subject name </span> <b>  
-                    <input type="text", name="subname", placeholder= "Subject Name", required>
+                    <input type="text", name="subname", value="<?php echo $sname ?>", placeholder= "Subject Name", required>
                 </label> 
 
 
                 <label><b> <span> Subject code <span> <b> 
-                    <input type="text", name="subcode", placeholder= "Subject Code",  required>
+                    <input type="text", name="subcode", value="<?php echo $scode ?>", placeholder= "Subject Code",  required>
                 </label> 
                 
                 
@@ -110,6 +143,7 @@
 
                 <!-- <div>
                     <label > <b> <span> Section </span> <b>
+                   
                         <select name="sec">
                             <option value="Section">Section</option>
                             <option value="A">A</option>
@@ -122,7 +156,7 @@
 
                 <div>
                     <label>Semester
-                        <input type="number", name="sem", min="1", max="8">
+                        <input type="number", name="sem", value="<?php echo $sem ?>", min="1", max="8">
                     </label>
                 </div>
 
