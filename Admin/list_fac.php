@@ -19,9 +19,9 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col col-sm-9">Sample Data</div>
+                        <div class="col col-sm-9"><a class='btn btn-success btn-sm float-left' href='home.php'>Home</a></div>
                         <div class="col col-sm-3">
-                        <a class='btn btn-success btn-sm float-end' href='faculty_register.php'>Add Subject</a>
+                        <a class='btn btn-success btn-sm float-end' href='faculty_register.php'>Add Faculty</a>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
 
                                             <td>
                                                 <a class='btn btn-primary btn-sm' href='updatefac.php?id=$row[id]'>Update</a>
-                                                <a class='btn btn-danger btn-sm' href='#'>Delete</a>
+                                                <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]&Type=Fac'>Delete</a>
                                             </td>
                                         </tr>";
                                     }

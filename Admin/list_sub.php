@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col col-sm-9">Sample Data</div>
+                        <div class="col col-sm-9"><a class='btn btn-success btn-sm float-left' href='home.php'>Home</a></div>
                         <div class="col col-sm-3">
                             <a class='btn btn-success btn-sm float-end' href='subject_register.php'>Add Subject</a>
                             <!-- <button type="button" id="add_data" class="btn btn-success btn-sm float-end">Add</button> -->
@@ -73,8 +73,8 @@
                                             <td>". $row["sem"]. "</td>
 
                                             <td>
-                                                <a class='btn btn-primary btn-sm' href='updatesub.php?id=$row[id]'>Edit</a>
-                                                <a class='btn btn-danger btn-sm' href='deletesub.php?id=$row[id]'>Delete</a>
+                                                <a class='btn btn-primary btn-sm' href='updatesub.php?id=$row[id]'>Update</a>
+                                                <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]&Type=Sub'>Delete</a>
                                             </td>
                                         </tr>";
                                     }

@@ -5,6 +5,7 @@ body{
 	font-family: 'Raleway', sans-serif;
 	background-color: aqua;
 	font-weight: 400;
+	height: 100%;
 }
 
 .main1
@@ -35,13 +36,12 @@ a{
 /*header*/
 .header{
 	position: absolute;
-	height: 15%;
 	width: 100%;
 	left:0;
 	top:0;
 	z-index: 99;
-	padding: 15px;
-	background-color: aqua;
+	padding: 2px;
+	background-color:burlywood;
 }
 .header-main{
 	background-color: #ffffff;
